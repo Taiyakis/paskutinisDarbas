@@ -1,0 +1,56 @@
+#mydiv {
+	position:relative;
+	top:12px; bottom:6px;
+	margin-bottom: 25px;
+}
+#mydiv > h1 {
+	color:#FF8C00;
+}
+
+#divlentele {
+
+  width: 90% ;
+  margin-left: 5% ;
+  margin-right: 5% ;
+}
+
+#lentele {
+    border: 1px solid black;
+	width:100%;
+	margin-top: 1px;
+	height:75px;
+}
+#centruoti {
+	text-align:center;
+	width:15%;
+}
+td.proc8 {
+	width:8%;
+}
+td.oranzine {
+	text-align:center;
+	width:15%;
+	color:#FF8C00;
+	font-size: 20px;
+}
+td.zalia {
+	color:#33d21c;
+	width:13%;
+}
+td.pilka {
+	color:#CDC7C7;
+	text-align:center;
+	vertical-align:top;
+	width:15%;
+}
+td.boldas {
+	font-weight: bold;
+}
+td.buttonas {
+	width:70px;
+}
+
+.dropdown {
+    display: inline;
+}
+

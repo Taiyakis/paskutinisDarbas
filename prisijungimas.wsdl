@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="prisijungimas"
+	targetNamespace="http://localhost:777/prisijungimas"
+	xmlns="http://localhost:777/prisijungimas"
+	xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	
+	
+	<wsdl:message name="prisijungimoUzklausa">
+		<wsdl:part name="username" type="xs:string"/>
+		<wsdl:part name="passwords" type="xs:string"/>
+	</wsdl:message>
+	
+	<wsdl:message name="prisijungimoAtsakymas">
+		<wsdl:part name="atsakymas" type="xs:string"/>
+	</wsdl:message>
+	
+	<wsdl:portType name="uzklausos">
+	
+		<wsdl:operation name="zinutes">
+			<wsdl:input message="prisijungimoUzklausa"/>
+			<wsdl:output message="prisijungimoAtsakymas"/>
+		</wsdl:operation>
+		
+	</wsdl:portType>
+	
+	<wsdl:binding name="uzklausosPrijungimasPrieSoap" type="uzklausos">
+		<soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+		
+		<wsdl:operation name="zinutes">
+			<soap:operation soapAction="zinutes"/>
+			<wsdl:input>
+				<soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	
+	<wsdl:service name="ManoService">
+		<wsdl:port binding="uzklausosPrijungimasPrieSoap" name="uzklausosPort">
+			<soap:address location="http://localhost:777/login"/>
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

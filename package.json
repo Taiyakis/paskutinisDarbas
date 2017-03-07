@@ -1,0 +1,17 @@
+{
+  "name": "mindaugas",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Express",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "mindaugas",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.14.1",
+    "express-handlebars": "^3.0.0",
+    "soap": "^0.18.0"
+  }
+}
