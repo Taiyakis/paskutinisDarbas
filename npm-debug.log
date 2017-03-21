@@ -1,0 +1,649 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files\\nodejs\\node.exe',
+1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install',
+1 verbose cli   'redirect-rest' ]
+2 info using npm@3.10.10
+3 info using node@v6.9.5
+4 silly loadCurrentTree Starting
+5 silly install loadCurrentTree
+6 silly install readLocalPackageData
+7 silly fetchPackageMetaData redirect-rest
+8 silly fetchNamedPackageData redirect-rest
+9 silly mapToRegistry name redirect-rest
+10 silly mapToRegistry using default registry
+11 silly mapToRegistry registry https://registry.npmjs.org/
+12 silly mapToRegistry data Result {
+12 silly mapToRegistry   raw: 'redirect-rest',
+12 silly mapToRegistry   scope: null,
+12 silly mapToRegistry   escapedName: 'redirect-rest',
+12 silly mapToRegistry   name: 'redirect-rest',
+12 silly mapToRegistry   rawSpec: '',
+12 silly mapToRegistry   spec: 'latest',
+12 silly mapToRegistry   type: 'tag' }
+13 silly mapToRegistry uri https://registry.npmjs.org/redirect-rest
+14 verbose request uri https://registry.npmjs.org/redirect-rest
+15 verbose request no auth needed
+16 info attempt registry request try #1 at 22:46:33
+17 verbose request id e95c2e0f8947ace9
+18 verbose etag W/"54913005-4886"
+19 verbose lastModified Wed, 17 Dec 2014 07:25:57 GMT
+20 http request GET https://registry.npmjs.org/redirect-rest
+21 http 304 https://registry.npmjs.org/redirect-rest
+22 verbose headers { date: 'Mon, 20 Mar 2017 20:46:35 GMT',
+22 verbose headers   via: '1.1 varnish',
+22 verbose headers   'cache-control': 'max-age=300',
+22 verbose headers   etag: 'W/"54913005-4886"',
+22 verbose headers   age: '0',
+22 verbose headers   connection: 'keep-alive',
+22 verbose headers   'x-served-by': 'cache-hhn1527-HHN',
+22 verbose headers   'x-cache': 'MISS',
+22 verbose headers   'x-cache-hits': '0',
+22 verbose headers   'x-timer': 'S1490042795.853987,VS0,VE20',
+22 verbose headers   vary: 'Accept-Encoding' }
+23 silly get cb [ 304,
+23 silly get   { date: 'Mon, 20 Mar 2017 20:46:35 GMT',
+23 silly get     via: '1.1 varnish',
+23 silly get     'cache-control': 'max-age=300',
+23 silly get     etag: 'W/"54913005-4886"',
+23 silly get     age: '0',
+23 silly get     connection: 'keep-alive',
+23 silly get     'x-served-by': 'cache-hhn1527-HHN',
+23 silly get     'x-cache': 'MISS',
+23 silly get     'x-cache-hits': '0',
+23 silly get     'x-timer': 'S1490042795.853987,VS0,VE20',
+23 silly get     vary: 'Accept-Encoding' } ]
+24 verbose etag https://registry.npmjs.org/redirect-rest from cache
+25 verbose get saving redirect-rest to C:\Users\Mindaugas\AppData\Roaming\npm-cache\registry.npmjs.org\redirect-rest\.cache.json
+26 verbose correctMkdir C:\Users\Mindaugas\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+27 silly install normalizeTree
+28 silly loadCurrentTree Finishing
+29 silly loadIdealTree Starting
+30 silly install loadIdealTree
+31 silly cloneCurrentTree Starting
+32 silly install cloneCurrentTreeToIdealTree
+33 silly cloneCurrentTree Finishing
+34 silly loadShrinkwrap Starting
+35 silly install loadShrinkwrap
+36 silly loadShrinkwrap Finishing
+37 silly loadAllDepsIntoIdealTree Starting
+38 silly install loadAllDepsIntoIdealTree
+39 silly resolveWithNewModule redirect-rest@2.1.0 checking installable status
+40 silly cache add args [ 'redirect-rest', null ]
+41 verbose cache add spec redirect-rest
+42 silly cache add parsed spec Result {
+42 silly cache add   raw: 'redirect-rest',
+42 silly cache add   scope: null,
+42 silly cache add   escapedName: 'redirect-rest',
+42 silly cache add   name: 'redirect-rest',
+42 silly cache add   rawSpec: '',
+42 silly cache add   spec: 'latest',
+42 silly cache add   type: 'tag' }
+43 silly addNamed redirect-rest@latest
+44 verbose addNamed "latest" is being treated as a dist-tag for redirect-rest
+45 info addNameTag [ 'redirect-rest', 'latest' ]
+46 silly mapToRegistry name redirect-rest
+47 silly mapToRegistry using default registry
+48 silly mapToRegistry registry https://registry.npmjs.org/
+49 silly mapToRegistry data Result {
+49 silly mapToRegistry   raw: 'redirect-rest',
+49 silly mapToRegistry   scope: null,
+49 silly mapToRegistry   escapedName: 'redirect-rest',
+49 silly mapToRegistry   name: 'redirect-rest',
+49 silly mapToRegistry   rawSpec: '',
+49 silly mapToRegistry   spec: 'latest',
+49 silly mapToRegistry   type: 'tag' }
+50 silly mapToRegistry uri https://registry.npmjs.org/redirect-rest
+51 verbose addNameTag registry:https://registry.npmjs.org/redirect-rest not in flight; fetching
+52 verbose get https://registry.npmjs.org/redirect-rest not expired, no request
+53 silly addNameTag next cb for redirect-rest with tag latest
+54 silly addNamed redirect-rest@2.1.0
+55 verbose addNamed "2.1.0" is a plain semver version for redirect-rest
+56 silly cache afterAdd redirect-rest@2.1.0
+57 verbose afterAdd C:\Users\Mindaugas\AppData\Roaming\npm-cache\redirect-rest\2.1.0\package\package.json not in flight; writing
+58 verbose correctMkdir C:\Users\Mindaugas\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+59 verbose afterAdd C:\Users\Mindaugas\AppData\Roaming\npm-cache\redirect-rest\2.1.0\package\package.json written
+60 silly fetchNamedPackageData custom-logger
+61 silly mapToRegistry name custom-logger
+62 silly mapToRegistry using default registry
+63 silly mapToRegistry registry https://registry.npmjs.org/
+64 silly mapToRegistry data Result {
+64 silly mapToRegistry   raw: 'custom-logger',
+64 silly mapToRegistry   scope: null,
+64 silly mapToRegistry   escapedName: 'custom-logger',
+64 silly mapToRegistry   name: 'custom-logger',
+64 silly mapToRegistry   rawSpec: '',
+64 silly mapToRegistry   spec: 'latest',
+64 silly mapToRegistry   type: 'tag' }
+65 silly mapToRegistry uri https://registry.npmjs.org/custom-logger
+66 silly fetchNamedPackageData underscore
+67 silly mapToRegistry name underscore
+68 silly mapToRegistry using default registry
+69 silly mapToRegistry registry https://registry.npmjs.org/
+70 silly mapToRegistry data Result {
+70 silly mapToRegistry   raw: 'underscore',
+70 silly mapToRegistry   scope: null,
+70 silly mapToRegistry   escapedName: 'underscore',
+70 silly mapToRegistry   name: 'underscore',
+70 silly mapToRegistry   rawSpec: '',
+70 silly mapToRegistry   spec: 'latest',
+70 silly mapToRegistry   type: 'tag' }
+71 silly mapToRegistry uri https://registry.npmjs.org/underscore
+72 silly fetchNamedPackageData express-livereload
+73 silly mapToRegistry name express-livereload
+74 silly mapToRegistry using default registry
+75 silly mapToRegistry registry https://registry.npmjs.org/
+76 silly mapToRegistry data Result {
+76 silly mapToRegistry   raw: 'express-livereload',
+76 silly mapToRegistry   scope: null,
+76 silly mapToRegistry   escapedName: 'express-livereload',
+76 silly mapToRegistry   name: 'express-livereload',
+76 silly mapToRegistry   rawSpec: '',
+76 silly mapToRegistry   spec: 'latest',
+76 silly mapToRegistry   type: 'tag' }
+77 silly mapToRegistry uri https://registry.npmjs.org/express-livereload
+78 verbose request uri https://registry.npmjs.org/custom-logger
+79 verbose request no auth needed
+80 info attempt registry request try #1 at 22:46:34
+81 verbose etag W/"55792098-3b6d"
+82 verbose lastModified Thu, 11 Jun 2015 05:46:00 GMT
+83 http request GET https://registry.npmjs.org/custom-logger
+84 verbose request uri https://registry.npmjs.org/underscore
+85 verbose request no auth needed
+86 info attempt registry request try #1 at 22:46:34
+87 verbose etag W/"58c7dd04-acae"
+88 verbose lastModified Tue, 14 Mar 2017 12:07:32 GMT
+89 http request GET https://registry.npmjs.org/underscore
+90 verbose request uri https://registry.npmjs.org/express-livereload
+91 verbose request no auth needed
+92 info attempt registry request try #1 at 22:46:34
+93 verbose etag W/"5098b783-329a"
+94 verbose lastModified Tue, 06 Nov 2012 07:08:51 GMT
+95 http request GET https://registry.npmjs.org/express-livereload
+96 http 304 https://registry.npmjs.org/custom-logger
+97 verbose headers { date: 'Mon, 20 Mar 2017 20:46:36 GMT',
+97 verbose headers   via: '1.1 varnish',
+97 verbose headers   'cache-control': 'max-age=300',
+97 verbose headers   etag: 'W/"55792098-3b6d"',
+97 verbose headers   age: '0',
+97 verbose headers   connection: 'keep-alive',
+97 verbose headers   'x-served-by': 'cache-hhn1527-HHN',
+97 verbose headers   'x-cache': 'MISS',
+97 verbose headers   'x-cache-hits': '0',
+97 verbose headers   'x-timer': 'S1490042796.043501,VS0,VE8',
+97 verbose headers   vary: 'Accept-Encoding' }
+98 silly get cb [ 304,
+98 silly get   { date: 'Mon, 20 Mar 2017 20:46:36 GMT',
+98 silly get     via: '1.1 varnish',
+98 silly get     'cache-control': 'max-age=300',
+98 silly get     etag: 'W/"55792098-3b6d"',
+98 silly get     age: '0',
+98 silly get     connection: 'keep-alive',
+98 silly get     'x-served-by': 'cache-hhn1527-HHN',
+98 silly get     'x-cache': 'MISS',
+98 silly get     'x-cache-hits': '0',
+98 silly get     'x-timer': 'S1490042796.043501,VS0,VE8',
+98 silly get     vary: 'Accept-Encoding' } ]
+99 verbose etag https://registry.npmjs.org/custom-logger from cache
+100 verbose get saving custom-logger to C:\Users\Mindaugas\AppData\Roaming\npm-cache\registry.npmjs.org\custom-logger\.cache.json
+101 verbose correctMkdir C:\Users\Mindaugas\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+102 silly resolveWithNewModule custom-logger@0.2.1 checking installable status
+103 silly cache add args [ 'custom-logger@^0.2.1', null ]
+104 verbose cache add spec custom-logger@^0.2.1
+105 silly cache add parsed spec Result {
+105 silly cache add   raw: 'custom-logger@^0.2.1',
+105 silly cache add   scope: null,
+105 silly cache add   escapedName: 'custom-logger',
+105 silly cache add   name: 'custom-logger',
+105 silly cache add   rawSpec: '^0.2.1',
+105 silly cache add   spec: '>=0.2.1 <0.3.0',
+105 silly cache add   type: 'range' }
+106 silly addNamed custom-logger@>=0.2.1 <0.3.0
+107 verbose addNamed ">=0.2.1 <0.3.0" is a valid semver range for custom-logger
+108 silly addNameRange { name: 'custom-logger',
+108 silly addNameRange   range: '>=0.2.1 <0.3.0',
+108 silly addNameRange   hasData: false }
+109 silly mapToRegistry name custom-logger
+110 silly mapToRegistry using default registry
+111 silly mapToRegistry registry https://registry.npmjs.org/
+112 silly mapToRegistry data Result {
+112 silly mapToRegistry   raw: 'custom-logger',
+112 silly mapToRegistry   scope: null,
+112 silly mapToRegistry   escapedName: 'custom-logger',
+112 silly mapToRegistry   name: 'custom-logger',
+112 silly mapToRegistry   rawSpec: '',
+112 silly mapToRegistry   spec: 'latest',
+112 silly mapToRegistry   type: 'tag' }
+113 silly mapToRegistry uri https://registry.npmjs.org/custom-logger
+114 verbose addNameRange registry:https://registry.npmjs.org/custom-logger not in flight; fetching
+115 verbose get https://registry.npmjs.org/custom-logger not expired, no request
+116 silly addNameRange number 2 { name: 'custom-logger', range: '>=0.2.1 <0.3.0', hasData: true }
+117 silly addNameRange versions [ 'custom-logger',
+117 silly addNameRange   [ '0.1.0', '0.2.0', '0.2.1', '0.3.0', '0.3.1' ] ]
+118 silly addNamed custom-logger@0.2.1
+119 verbose addNamed "0.2.1" is a plain semver version for custom-logger
+120 silly cache afterAdd custom-logger@0.2.1
+121 verbose afterAdd C:\Users\Mindaugas\AppData\Roaming\npm-cache\custom-logger\0.2.1\package\package.json not in flight; writing
+122 verbose correctMkdir C:\Users\Mindaugas\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+123 verbose afterAdd C:\Users\Mindaugas\AppData\Roaming\npm-cache\custom-logger\0.2.1\package\package.json written
+124 http 200 https://registry.npmjs.org/underscore
+125 verbose headers { server: 'nginx/1.10.1',
+125 verbose headers   'content-type': 'application/json',
+125 verbose headers   'last-modified': 'Mon, 20 Mar 2017 19:15:28 GMT',
+125 verbose headers   etag: 'W/"58d02a50-aca1"',
+125 verbose headers   'content-encoding': 'gzip',
+125 verbose headers   'cache-control': 'max-age=300',
+125 verbose headers   'content-length': '7284',
+125 verbose headers   'accept-ranges': 'bytes',
+125 verbose headers   date: 'Mon, 20 Mar 2017 20:46:36 GMT',
+125 verbose headers   via: '1.1 varnish',
+125 verbose headers   age: '43',
+125 verbose headers   connection: 'keep-alive',
+125 verbose headers   'x-served-by': 'cache-hhn1550-HHN',
+125 verbose headers   'x-cache': 'HIT',
+125 verbose headers   'x-cache-hits': '2',
+125 verbose headers   'x-timer': 'S1490042796.100845,VS0,VE0',
+125 verbose headers   vary: 'Accept-Encoding' }
+126 silly get cb [ 200,
+126 silly get   { server: 'nginx/1.10.1',
+126 silly get     'content-type': 'application/json',
+126 silly get     'last-modified': 'Mon, 20 Mar 2017 19:15:28 GMT',
+126 silly get     etag: 'W/"58d02a50-aca1"',
+126 silly get     'content-encoding': 'gzip',
+126 silly get     'cache-control': 'max-age=300',
+126 silly get     'content-length': '7284',
+126 silly get     'accept-ranges': 'bytes',
+126 silly get     date: 'Mon, 20 Mar 2017 20:46:36 GMT',
+126 silly get     via: '1.1 varnish',
+126 silly get     age: '43',
+126 silly get     connection: 'keep-alive',
+126 silly get     'x-served-by': 'cache-hhn1550-HHN',
+126 silly get     'x-cache': 'HIT',
+126 silly get     'x-cache-hits': '2',
+126 silly get     'x-timer': 'S1490042796.100845,VS0,VE0',
+126 silly get     vary: 'Accept-Encoding' } ]
+127 verbose get saving underscore to C:\Users\Mindaugas\AppData\Roaming\npm-cache\registry.npmjs.org\underscore\.cache.json
+128 verbose correctMkdir C:\Users\Mindaugas\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+129 silly resolveWithNewModule underscore@1.8.3 checking installable status
+130 silly cache add args [ 'underscore@^1.6.0', null ]
+131 verbose cache add spec underscore@^1.6.0
+132 silly cache add parsed spec Result {
+132 silly cache add   raw: 'underscore@^1.6.0',
+132 silly cache add   scope: null,
+132 silly cache add   escapedName: 'underscore',
+132 silly cache add   name: 'underscore',
+132 silly cache add   rawSpec: '^1.6.0',
+132 silly cache add   spec: '>=1.6.0 <2.0.0',
+132 silly cache add   type: 'range' }
+133 silly addNamed underscore@>=1.6.0 <2.0.0
+134 verbose addNamed ">=1.6.0 <2.0.0" is a valid semver range for underscore
+135 silly addNameRange { name: 'underscore', range: '>=1.6.0 <2.0.0', hasData: false }
+136 silly mapToRegistry name underscore
+137 silly mapToRegistry using default registry
+138 silly mapToRegistry registry https://registry.npmjs.org/
+139 silly mapToRegistry data Result {
+139 silly mapToRegistry   raw: 'underscore',
+139 silly mapToRegistry   scope: null,
+139 silly mapToRegistry   escapedName: 'underscore',
+139 silly mapToRegistry   name: 'underscore',
+139 silly mapToRegistry   rawSpec: '',
+139 silly mapToRegistry   spec: 'latest',
+139 silly mapToRegistry   type: 'tag' }
+140 silly mapToRegistry uri https://registry.npmjs.org/underscore
+141 verbose addNameRange registry:https://registry.npmjs.org/underscore not in flight; fetching
+142 verbose get https://registry.npmjs.org/underscore not expired, no request
+143 silly addNameRange number 2 { name: 'underscore', range: '>=1.6.0 <2.0.0', hasData: true }
+144 silly addNameRange versions [ 'underscore',
+144 silly addNameRange   [ '1.0.3',
+144 silly addNameRange     '1.0.4',
+144 silly addNameRange     '1.1.0',
+144 silly addNameRange     '1.1.1',
+144 silly addNameRange     '1.1.2',
+144 silly addNameRange     '1.1.3',
+144 silly addNameRange     '1.1.4',
+144 silly addNameRange     '1.1.5',
+144 silly addNameRange     '1.1.6',
+144 silly addNameRange     '1.1.7',
+144 silly addNameRange     '1.2.0',
+144 silly addNameRange     '1.2.1',
+144 silly addNameRange     '1.2.2',
+144 silly addNameRange     '1.2.3',
+144 silly addNameRange     '1.2.4',
+144 silly addNameRange     '1.3.0',
+144 silly addNameRange     '1.3.1',
+144 silly addNameRange     '1.3.2',
+144 silly addNameRange     '1.3.3',
+144 silly addNameRange     '1.4.0',
+144 silly addNameRange     '1.4.1',
+144 silly addNameRange     '1.4.2',
+144 silly addNameRange     '1.4.3',
+144 silly addNameRange     '1.4.4',
+144 silly addNameRange     '1.5.0',
+144 silly addNameRange     '1.5.1',
+144 silly addNameRange     '1.5.2',
+144 silly addNameRange     '1.6.0',
+144 silly addNameRange     '1.7.0',
+144 silly addNameRange     '1.8.0',
+144 silly addNameRange     '1.8.1',
+144 silly addNameRange     '1.8.2',
+144 silly addNameRange     '1.8.3' ] ]
+145 silly addNamed underscore@1.8.3
+146 verbose addNamed "1.8.3" is a plain semver version for underscore
+147 silly cache afterAdd underscore@1.8.3
+148 verbose afterAdd C:\Users\Mindaugas\AppData\Roaming\npm-cache\underscore\1.8.3\package\package.json not in flight; writing
+149 verbose correctMkdir C:\Users\Mindaugas\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+150 http 304 https://registry.npmjs.org/express-livereload
+151 verbose headers { date: 'Mon, 20 Mar 2017 20:46:36 GMT',
+151 verbose headers   via: '1.1 varnish',
+151 verbose headers   'cache-control': 'max-age=300',
+151 verbose headers   etag: 'W/"5098b783-329a"',
+151 verbose headers   age: '0',
+151 verbose headers   connection: 'keep-alive',
+151 verbose headers   'x-served-by': 'cache-hhn1530-HHN',
+151 verbose headers   'x-cache': 'MISS',
+151 verbose headers   'x-cache-hits': '0',
+151 verbose headers   'x-timer': 'S1490042796.095836,VS0,VE19',
+151 verbose headers   vary: 'Accept-Encoding' }
+152 silly get cb [ 304,
+152 silly get   { date: 'Mon, 20 Mar 2017 20:46:36 GMT',
+152 silly get     via: '1.1 varnish',
+152 silly get     'cache-control': 'max-age=300',
+152 silly get     etag: 'W/"5098b783-329a"',
+152 silly get     age: '0',
+152 silly get     connection: 'keep-alive',
+152 silly get     'x-served-by': 'cache-hhn1530-HHN',
+152 silly get     'x-cache': 'MISS',
+152 silly get     'x-cache-hits': '0',
+152 silly get     'x-timer': 'S1490042796.095836,VS0,VE19',
+152 silly get     vary: 'Accept-Encoding' } ]
+153 verbose etag https://registry.npmjs.org/express-livereload from cache
+154 verbose get saving express-livereload to C:\Users\Mindaugas\AppData\Roaming\npm-cache\registry.npmjs.org\express-livereload\.cache.json
+155 verbose correctMkdir C:\Users\Mindaugas\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+156 verbose afterAdd C:\Users\Mindaugas\AppData\Roaming\npm-cache\underscore\1.8.3\package\package.json written
+157 silly resolveWithNewModule express-livereload@0.0.24 checking installable status
+158 silly cache add args [ 'express-livereload@^0.0.24', null ]
+159 verbose cache add spec express-livereload@^0.0.24
+160 silly cache add parsed spec Result {
+160 silly cache add   raw: 'express-livereload@^0.0.24',
+160 silly cache add   scope: null,
+160 silly cache add   escapedName: 'express-livereload',
+160 silly cache add   name: 'express-livereload',
+160 silly cache add   rawSpec: '^0.0.24',
+160 silly cache add   spec: '>=0.0.24 <0.0.25',
+160 silly cache add   type: 'range' }
+161 silly addNamed express-livereload@>=0.0.24 <0.0.25
+162 verbose addNamed ">=0.0.24 <0.0.25" is a valid semver range for express-livereload
+163 silly addNameRange { name: 'express-livereload',
+163 silly addNameRange   range: '>=0.0.24 <0.0.25',
+163 silly addNameRange   hasData: false }
+164 silly mapToRegistry name express-livereload
+165 silly mapToRegistry using default registry
+166 silly mapToRegistry registry https://registry.npmjs.org/
+167 silly mapToRegistry data Result {
+167 silly mapToRegistry   raw: 'express-livereload',
+167 silly mapToRegistry   scope: null,
+167 silly mapToRegistry   escapedName: 'express-livereload',
+167 silly mapToRegistry   name: 'express-livereload',
+167 silly mapToRegistry   rawSpec: '',
+167 silly mapToRegistry   spec: 'latest',
+167 silly mapToRegistry   type: 'tag' }
+168 silly mapToRegistry uri https://registry.npmjs.org/express-livereload
+169 verbose addNameRange registry:https://registry.npmjs.org/express-livereload not in flight; fetching
+170 verbose get https://registry.npmjs.org/express-livereload not expired, no request
+171 silly addNameRange number 2 { name: 'express-livereload',
+171 silly addNameRange   range: '>=0.0.24 <0.0.25',
+171 silly addNameRange   hasData: true }
+172 silly addNameRange versions [ 'express-livereload',
+172 silly addNameRange   [ '0.0.1', '0.0.2', '0.0.21', '0.0.22', '0.0.23', '0.0.24' ] ]
+173 silly addNamed express-livereload@0.0.24
+174 verbose addNamed "0.0.24" is a plain semver version for express-livereload
+175 silly cache afterAdd express-livereload@0.0.24
+176 verbose afterAdd C:\Users\Mindaugas\AppData\Roaming\npm-cache\express-livereload\0.0.24\package\package.json not in flight; writing
+177 verbose correctMkdir C:\Users\Mindaugas\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+178 verbose afterAdd C:\Users\Mindaugas\AppData\Roaming\npm-cache\express-livereload\0.0.24\package\package.json written
+179 silly fetchNamedPackageData colors
+180 silly mapToRegistry name colors
+181 silly mapToRegistry using default registry
+182 silly mapToRegistry registry https://registry.npmjs.org/
+183 silly mapToRegistry data Result {
+183 silly mapToRegistry   raw: 'colors',
+183 silly mapToRegistry   scope: null,
+183 silly mapToRegistry   escapedName: 'colors',
+183 silly mapToRegistry   name: 'colors',
+183 silly mapToRegistry   rawSpec: '',
+183 silly mapToRegistry   spec: 'latest',
+183 silly mapToRegistry   type: 'tag' }
+184 silly mapToRegistry uri https://registry.npmjs.org/colors
+185 silly fetchNamedPackageData dateformat
+186 silly mapToRegistry name dateformat
+187 silly mapToRegistry using default registry
+188 silly mapToRegistry registry https://registry.npmjs.org/
+189 silly mapToRegistry data Result {
+189 silly mapToRegistry   raw: 'dateformat',
+189 silly mapToRegistry   scope: null,
+189 silly mapToRegistry   escapedName: 'dateformat',
+189 silly mapToRegistry   name: 'dateformat',
+189 silly mapToRegistry   rawSpec: '',
+189 silly mapToRegistry   spec: 'latest',
+189 silly mapToRegistry   type: 'tag' }
+190 silly mapToRegistry uri https://registry.npmjs.org/dateformat
+191 verbose request uri https://registry.npmjs.org/colors
+192 verbose request no auth needed
+193 info attempt registry request try #1 at 22:46:34
+194 verbose etag W/"58ce96f3-586f"
+195 verbose lastModified Sun, 19 Mar 2017 14:34:27 GMT
+196 http request GET https://registry.npmjs.org/colors
+197 verbose request uri https://registry.npmjs.org/dateformat
+198 verbose request no auth needed
+199 info attempt registry request try #1 at 22:46:34
+200 verbose etag W/"58cb875c-5d76"
+201 verbose lastModified Fri, 17 Mar 2017 06:51:08 GMT
+202 http request GET https://registry.npmjs.org/dateformat
+203 http 304 https://registry.npmjs.org/dateformat
+204 verbose headers { date: 'Mon, 20 Mar 2017 20:46:36 GMT',
+204 verbose headers   via: '1.1 varnish',
+204 verbose headers   'cache-control': 'max-age=300',
+204 verbose headers   etag: 'W/"58cb875c-5d76"',
+204 verbose headers   age: '129',
+204 verbose headers   connection: 'keep-alive',
+204 verbose headers   'x-served-by': 'cache-hhn1550-HHN',
+204 verbose headers   'x-cache': 'HIT',
+204 verbose headers   'x-cache-hits': '1',
+204 verbose headers   'x-timer': 'S1490042796.302374,VS0,VE0',
+204 verbose headers   vary: 'Accept-Encoding' }
+205 silly get cb [ 304,
+205 silly get   { date: 'Mon, 20 Mar 2017 20:46:36 GMT',
+205 silly get     via: '1.1 varnish',
+205 silly get     'cache-control': 'max-age=300',
+205 silly get     etag: 'W/"58cb875c-5d76"',
+205 silly get     age: '129',
+205 silly get     connection: 'keep-alive',
+205 silly get     'x-served-by': 'cache-hhn1550-HHN',
+205 silly get     'x-cache': 'HIT',
+205 silly get     'x-cache-hits': '1',
+205 silly get     'x-timer': 'S1490042796.302374,VS0,VE0',
+205 silly get     vary: 'Accept-Encoding' } ]
+206 verbose etag https://registry.npmjs.org/dateformat from cache
+207 verbose get saving dateformat to C:\Users\Mindaugas\AppData\Roaming\npm-cache\registry.npmjs.org\dateformat\.cache.json
+208 verbose correctMkdir C:\Users\Mindaugas\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+209 http 304 https://registry.npmjs.org/colors
+210 verbose headers { date: 'Mon, 20 Mar 2017 20:46:36 GMT',
+210 verbose headers   via: '1.1 varnish',
+210 verbose headers   'cache-control': 'max-age=300',
+210 verbose headers   etag: 'W/"58ce96f3-586f"',
+210 verbose headers   age: '110',
+210 verbose headers   connection: 'keep-alive',
+210 verbose headers   'x-served-by': 'cache-hhn1527-HHN',
+210 verbose headers   'x-cache': 'HIT',
+210 verbose headers   'x-cache-hits': '6',
+210 verbose headers   'x-timer': 'S1490042796.301389,VS0,VE0',
+210 verbose headers   vary: 'Accept-Encoding' }
+211 silly get cb [ 304,
+211 silly get   { date: 'Mon, 20 Mar 2017 20:46:36 GMT',
+211 silly get     via: '1.1 varnish',
+211 silly get     'cache-control': 'max-age=300',
+211 silly get     etag: 'W/"58ce96f3-586f"',
+211 silly get     age: '110',
+211 silly get     connection: 'keep-alive',
+211 silly get     'x-served-by': 'cache-hhn1527-HHN',
+211 silly get     'x-cache': 'HIT',
+211 silly get     'x-cache-hits': '6',
+211 silly get     'x-timer': 'S1490042796.301389,VS0,VE0',
+211 silly get     vary: 'Accept-Encoding' } ]
+212 verbose etag https://registry.npmjs.org/colors from cache
+213 verbose get saving colors to C:\Users\Mindaugas\AppData\Roaming\npm-cache\registry.npmjs.org\colors\.cache.json
+214 verbose correctMkdir C:\Users\Mindaugas\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+215 silly resolveWithNewModule dateformat@1.0.2-1.2.3 checking installable status
+216 silly cache add args [ 'dateformat@1.0.2-1.2.3', null ]
+217 verbose cache add spec dateformat@1.0.2-1.2.3
+218 silly cache add parsed spec Result {
+218 silly cache add   raw: 'dateformat@1.0.2-1.2.3',
+218 silly cache add   scope: null,
+218 silly cache add   escapedName: 'dateformat',
+218 silly cache add   name: 'dateformat',
+218 silly cache add   rawSpec: '1.0.2-1.2.3',
+218 silly cache add   spec: '1.0.2-1.2.3',
+218 silly cache add   type: 'version' }
+219 silly addNamed dateformat@1.0.2-1.2.3
+220 verbose addNamed "1.0.2-1.2.3" is a plain semver version for dateformat
+221 silly mapToRegistry name dateformat
+222 silly mapToRegistry using default registry
+223 silly mapToRegistry registry https://registry.npmjs.org/
+224 silly mapToRegistry data Result {
+224 silly mapToRegistry   raw: 'dateformat',
+224 silly mapToRegistry   scope: null,
+224 silly mapToRegistry   escapedName: 'dateformat',
+224 silly mapToRegistry   name: 'dateformat',
+224 silly mapToRegistry   rawSpec: '',
+224 silly mapToRegistry   spec: 'latest',
+224 silly mapToRegistry   type: 'tag' }
+225 silly mapToRegistry uri https://registry.npmjs.org/dateformat
+226 verbose addNameVersion registry:https://registry.npmjs.org/dateformat not in flight; fetching
+227 silly resolveWithNewModule colors@0.6.0-1 checking installable status
+228 silly cache add args [ 'colors@0.6.0-1', null ]
+229 verbose cache add spec colors@0.6.0-1
+230 silly cache add parsed spec Result {
+230 silly cache add   raw: 'colors@0.6.0-1',
+230 silly cache add   scope: null,
+230 silly cache add   escapedName: 'colors',
+230 silly cache add   name: 'colors',
+230 silly cache add   rawSpec: '0.6.0-1',
+230 silly cache add   spec: '0.6.0-1',
+230 silly cache add   type: 'version' }
+231 silly addNamed colors@0.6.0-1
+232 verbose addNamed "0.6.0-1" is a plain semver version for colors
+233 silly mapToRegistry name colors
+234 silly mapToRegistry using default registry
+235 silly mapToRegistry registry https://registry.npmjs.org/
+236 silly mapToRegistry data Result {
+236 silly mapToRegistry   raw: 'colors',
+236 silly mapToRegistry   scope: null,
+236 silly mapToRegistry   escapedName: 'colors',
+236 silly mapToRegistry   name: 'colors',
+236 silly mapToRegistry   rawSpec: '',
+236 silly mapToRegistry   spec: 'latest',
+236 silly mapToRegistry   type: 'tag' }
+237 silly mapToRegistry uri https://registry.npmjs.org/colors
+238 verbose addNameVersion registry:https://registry.npmjs.org/colors not in flight; fetching
+239 verbose get https://registry.npmjs.org/dateformat not expired, no request
+240 verbose get https://registry.npmjs.org/colors not expired, no request
+241 silly cache afterAdd dateformat@1.0.2-1.2.3
+242 verbose afterAdd C:\Users\Mindaugas\AppData\Roaming\npm-cache\dateformat\1.0.2-1.2.3\package\package.json not in flight; writing
+243 verbose correctMkdir C:\Users\Mindaugas\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+244 silly cache afterAdd colors@0.6.0-1
+245 verbose afterAdd C:\Users\Mindaugas\AppData\Roaming\npm-cache\colors\0.6.0-1\package\package.json not in flight; writing
+246 verbose correctMkdir C:\Users\Mindaugas\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+247 verbose afterAdd C:\Users\Mindaugas\AppData\Roaming\npm-cache\colors\0.6.0-1\package\package.json written
+248 verbose afterAdd C:\Users\Mindaugas\AppData\Roaming\npm-cache\dateformat\1.0.2-1.2.3\package\package.json written
+249 silly fetchOtherPackageData livereload@git://github.com/mnmly/node-livereload.git
+250 silly cache add args [ 'livereload@git://github.com/mnmly/node-livereload.git',
+250 silly cache add   null ]
+251 verbose cache add spec livereload@git://github.com/mnmly/node-livereload.git
+252 silly cache add parsed spec Result {
+252 silly cache add   raw: 'livereload@git://github.com/mnmly/node-livereload.git',
+252 silly cache add   scope: null,
+252 silly cache add   escapedName: 'livereload',
+252 silly cache add   name: 'livereload',
+252 silly cache add   rawSpec: 'git://github.com/mnmly/node-livereload.git',
+252 silly cache add   spec: 'git://github.com/mnmly/node-livereload.git',
+252 silly cache add   type: 'hosted',
+252 silly cache add   hosted:
+252 silly cache add    { type: 'github',
+252 silly cache add      ssh: 'git@github.com:mnmly/node-livereload.git',
+252 silly cache add      sshUrl: 'git+ssh://git@github.com/mnmly/node-livereload.git',
+252 silly cache add      httpsUrl: 'git+https://github.com/mnmly/node-livereload.git',
+252 silly cache add      gitUrl: 'git://github.com/mnmly/node-livereload.git',
+252 silly cache add      shortcut: 'github:mnmly/node-livereload',
+252 silly cache add      directUrl: 'https://raw.githubusercontent.com/mnmly/node-livereload/master/package.json' } }
+253 verbose addRemoteGit caching git://github.com/mnmly/node-livereload.git
+254 verbose addRemoteGit git://github.com/mnmly/node-livereload.git is a repository hosted by github
+255 silly tryClone cloning git://github.com/mnmly/node-livereload.git via git://github.com/mnmly/node-livereload.git
+256 verbose tryClone git-github-com-mnmly-node-livereload-git-6701ba88 not in flight; caching
+257 verbose correctMkdir C:\Users\Mindaugas\AppData\Roaming\npm-cache\_git-remotes correctMkdir not in flight; initializing
+258 warn addRemoteGit Error: not found: git
+258 warn addRemoteGit     at getNotFoundError (C:\Program Files\nodejs\node_modules\npm\node_modules\which\which.js:14:12)
+258 warn addRemoteGit     at F (C:\Program Files\nodejs\node_modules\npm\node_modules\which\which.js:69:19)
+258 warn addRemoteGit     at E (C:\Program Files\nodejs\node_modules\npm\node_modules\which\which.js:81:29)
+258 warn addRemoteGit     at C:\Program Files\nodejs\node_modules\npm\node_modules\which\which.js:90:16
+258 warn addRemoteGit     at C:\Program Files\nodejs\node_modules\npm\node_modules\which\node_modules\isexe\index.js:44:5
+258 warn addRemoteGit     at C:\Program Files\nodejs\node_modules\npm\node_modules\which\node_modules\isexe\windows.js:29:5
+258 warn addRemoteGit     at C:\Program Files\nodejs\node_modules\npm\node_modules\graceful-fs\polyfills.js:264:29
+258 warn addRemoteGit     at FSReqWrap.oncomplete (fs.js:123:15)
+258 warn addRemoteGit  git://github.com/mnmly/node-livereload.git resetting remote C:\Users\Mindaugas\AppData\Roaming\npm-cache\_git-remotes\git-github-com-mnmly-node-livereload-git-6701ba88 because of error: { Error: not found: git
+258 warn addRemoteGit     at getNotFoundError (C:\Program Files\nodejs\node_modules\npm\node_modules\which\which.js:14:12)
+258 warn addRemoteGit     at F (C:\Program Files\nodejs\node_modules\npm\node_modules\which\which.js:69:19)
+258 warn addRemoteGit     at E (C:\Program Files\nodejs\node_modules\npm\node_modules\which\which.js:81:29)
+258 warn addRemoteGit     at C:\Program Files\nodejs\node_modules\npm\node_modules\which\which.js:90:16
+258 warn addRemoteGit     at C:\Program Files\nodejs\node_modules\npm\node_modules\which\node_modules\isexe\index.js:44:5
+258 warn addRemoteGit     at C:\Program Files\nodejs\node_modules\npm\node_modules\which\node_modules\isexe\windows.js:29:5
+258 warn addRemoteGit     at C:\Program Files\nodejs\node_modules\npm\node_modules\graceful-fs\polyfills.js:264:29
+258 warn addRemoteGit     at FSReqWrap.oncomplete (fs.js:123:15) code: 'ENOGIT' }
+259 info resetRemote resetting C:\Users\Mindaugas\AppData\Roaming\npm-cache\_git-remotes\git-github-com-mnmly-node-livereload-git-6701ba88 for git://github.com/mnmly/node-livereload.git
+260 silly gentlyRm C:\Users\Mindaugas\AppData\Roaming\npm-cache\_git-remotes\git-github-com-mnmly-node-livereload-git-6701ba88 is being purged
+261 verbose gentlyRm don't care about contents; nuking C:\Users\Mindaugas\AppData\Roaming\npm-cache\_git-remotes\git-github-com-mnmly-node-livereload-git-6701ba88
+262 silly vacuum-fs purging C:\Users\Mindaugas\AppData\Roaming\npm-cache\_git-remotes\git-github-com-mnmly-node-livereload-git-6701ba88
+263 silly vacuum-fs quitting because other entries in C:\Users\Mindaugas\AppData\Roaming\npm-cache\_git-remotes
+264 error git clone --template=C:\Users\Mindaugas\AppData\Roaming\npm-cache\_git-remotes\_templates --mirror git://github.com/mnmly/node-livereload.git C:\Users\Mindaugas\AppData\Roaming\npm-cache\_git-remotes\git-github-com-mnmly-node-livereload-git-6701ba88: undefined
+264 error git clone --template=C:\Users\Mindaugas\AppData\Roaming\npm-cache\_git-remotes\_templates --mirror git://github.com/mnmly/node-livereload.git C:\Users\Mindaugas\AppData\Roaming\npm-cache\_git-remotes\git-github-com-mnmly-node-livereload-git-6701ba88: undefined
+265 silly fetchPackageMetaData Error: not found: git
+265 silly fetchPackageMetaData     at getNotFoundError (C:\Program Files\nodejs\node_modules\npm\node_modules\which\which.js:14:12)
+265 silly fetchPackageMetaData     at F (C:\Program Files\nodejs\node_modules\npm\node_modules\which\which.js:69:19)
+265 silly fetchPackageMetaData     at E (C:\Program Files\nodejs\node_modules\npm\node_modules\which\which.js:81:29)
+265 silly fetchPackageMetaData     at C:\Program Files\nodejs\node_modules\npm\node_modules\which\which.js:90:16
+265 silly fetchPackageMetaData     at C:\Program Files\nodejs\node_modules\npm\node_modules\which\node_modules\isexe\index.js:44:5
+265 silly fetchPackageMetaData     at C:\Program Files\nodejs\node_modules\npm\node_modules\which\node_modules\isexe\windows.js:29:5
+265 silly fetchPackageMetaData     at C:\Program Files\nodejs\node_modules\npm\node_modules\graceful-fs\polyfills.js:264:29
+265 silly fetchPackageMetaData     at FSReqWrap.oncomplete (fs.js:123:15)
+265 silly fetchPackageMetaData  error for livereload@git://github.com/mnmly/node-livereload.git { Error: not found: git
+265 silly fetchPackageMetaData     at getNotFoundError (C:\Program Files\nodejs\node_modules\npm\node_modules\which\which.js:14:12)
+265 silly fetchPackageMetaData     at F (C:\Program Files\nodejs\node_modules\npm\node_modules\which\which.js:69:19)
+265 silly fetchPackageMetaData     at E (C:\Program Files\nodejs\node_modules\npm\node_modules\which\which.js:81:29)
+265 silly fetchPackageMetaData     at C:\Program Files\nodejs\node_modules\npm\node_modules\which\which.js:90:16
+265 silly fetchPackageMetaData     at C:\Program Files\nodejs\node_modules\npm\node_modules\which\node_modules\isexe\index.js:44:5
+265 silly fetchPackageMetaData     at C:\Program Files\nodejs\node_modules\npm\node_modules\which\node_modules\isexe\windows.js:29:5
+265 silly fetchPackageMetaData     at C:\Program Files\nodejs\node_modules\npm\node_modules\graceful-fs\polyfills.js:264:29
+265 silly fetchPackageMetaData     at FSReqWrap.oncomplete (fs.js:123:15) code: 'ENOGIT' }
+266 silly rollbackFailedOptional Starting
+267 silly rollbackFailedOptional Finishing
+268 silly runTopLevelLifecycles Finishing
+269 silly install printInstalled
+270 verbose stack Error: not found: git
+270 verbose stack     at getNotFoundError (C:\Program Files\nodejs\node_modules\npm\node_modules\which\which.js:14:12)
+270 verbose stack     at F (C:\Program Files\nodejs\node_modules\npm\node_modules\which\which.js:69:19)
+270 verbose stack     at E (C:\Program Files\nodejs\node_modules\npm\node_modules\which\which.js:81:29)
+270 verbose stack     at C:\Program Files\nodejs\node_modules\npm\node_modules\which\which.js:90:16
+270 verbose stack     at C:\Program Files\nodejs\node_modules\npm\node_modules\which\node_modules\isexe\index.js:44:5
+270 verbose stack     at C:\Program Files\nodejs\node_modules\npm\node_modules\which\node_modules\isexe\windows.js:29:5
+270 verbose stack     at C:\Program Files\nodejs\node_modules\npm\node_modules\graceful-fs\polyfills.js:264:29
+270 verbose stack     at FSReqWrap.oncomplete (fs.js:123:15)
+271 verbose cwd C:\Users\Mindaugas\Desktop\6 pusmetis\Web Servisai\2uzduotis
+272 error Windows_NT 10.0.10586
+273 error argv "C:\\Program Files\\nodejs\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install" "redirect-rest"
+274 error node v6.9.5
+275 error npm  v3.10.10
+276 error code ENOGIT
+277 error not found: git
+278 error Failed using git.
+278 error This is most likely not a problem with npm itself.
+278 error Please check if you have git installed and in your PATH.
+279 verbose exit [ 1, true ]

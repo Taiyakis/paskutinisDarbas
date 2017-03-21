@@ -23,16 +23,17 @@
 		
 		<div class="form-group text-center"><p><b><h3>PASKYROS TIPAS</h3></b></p></div>
 		
-		<div class="radio">
-		  <label><input type="radio" name="optradio"><b>Studentas</b></label>
-		</div>
-		<div class="form-group"><p>Paskyra,skirta studentams kurie nori mokytis ir būti įvertinti</p></div>
-		<div class="radio">
-		  <label><input type="radio" name="optradio"><b>Destytojas</b></label>
-		</div>
-		<div class="form-group"><p>Paskyra su dėstytojo tipu,privalo kurti programinės įrangos</p></div>
-		
-		<div class="form-group"><a href="registerpart2.html"><button type="button" class="btn btn-primary btn-block">Testi</button></a></div>
+		<form action="/register" method="POST">
+			<div class="radio">
+			  <label><input type="radio" name="optradio"><b>Studentas</b></label>
+			</div>
+			<div class="form-group"><p>Paskyra,skirta studentams kurie nori mokytis ir būti įvertinti</p></div>
+			<div class="radio">
+			  <label><input type="radio" name="optradio"><b>Destytojas</b></label>
+			</div>
+			<div class="form-group"><p>Paskyra su dėstytojo tipu,privalo kurti programinės įrangos</p></div>
+			<div class="form-group"><button type="submit" name="submit" class="btn btn-primary btn-block">Testi</button></div>
+		</form>
 	</div>
 </div>
 <nav class="navbar navbar-default  navbar-fixed-bottom" role="navigation">
