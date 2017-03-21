@@ -1,1 +1,4 @@
-Mindaugas Ezerskas
+Minduagas Ezerskas
+------------------
+node index.js
+
