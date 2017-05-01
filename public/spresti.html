@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/tekstas.css">
+    <script src="js/vendor/jquery-1.11.2.min.js"></script>
+    <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+	<script>
+	
+	function pakeistiMygtuka(){
+		$.getJSON('/vartotojai', function(vartotojas) {
+			$.getJSON('/spauzdintiPamoka', function(data) {
+				if(vartotojas[0].role == 2 && data[0].sesijosID == vartotojas[0].ID) {
+					document.getElementById('pridetiKlausima').style.visibility = "visible";
+					document.getElementById('editKlausima').style.visibility = "visible";
+					document.getElementById('trintiKlausima').style.visibility = "visible";
+				}
+			});
+		});
+	}
+	function trintiKlausima(){
+		document.getElementById('atsakymoLaukas').style.visibility = "hidden";
+		document.getElementById('donebtn').style.visibility = "hidden";
+		document.getElementById('darLiko').style.visibility = "hidden";
+		
+		keistiPav = "";
+		
+		$.getJSON('/spauzdintiPamoka', function(data) {
+			pamokosId = data[klausimasNr].pamokosID;
+			keistiPav += "<form action="+"/pamoka/" + pamokosId + "/delete?_method=DELETE" +" method="+"POST"+">";
+			keistiPav += "<div style="+"width:100%;"+ "padding-left:15%;" + "padding-right:15%;" + kabute + ">";
+			keistiPav += "<button class="+ kabute +"btn btn-primary btn-block"+ kabute+" type="+"submit"+" style="+ kabute +"margin-top:10px;" + "width:35%;" + "float:right;" + kabute + ">Istrinti</button>";
+			keistiPav += "<button onclick="+kabute+"atsaukti();"+kabute+" type="+kabute+"button"+kabute+" style="+ kabute + "margin-top:10px; width:35%; float:left;"+ kabute +" class="+ kabute +"btn btn-warning btn-block" + kabute + ">Atsaukti/Grysti atgal</button></div>";
+			keistiPav += "</div></form>";
+			klaisimas = "<p style=" + kabute + "text-align: center;" + kabute +">Ar tikrai norite istrinti ?</p>";
+			document.getElementById('klausimas').innerHTML = klaisimas;
+			document.getElementById('paveikslelis').innerHTML = keistiPav;
+		});
+	}
+	function editKlausima() {
+		document.getElementById('atsakymoLaukas').style.visibility = "hidden";
+		document.getElementById('donebtn').style.visibility = "hidden";
+		document.getElementById('darLiko').style.visibility = "hidden";
+		
+		keistiPav = "";
+		
+		$.getJSON('/spauzdintiPamoka', function(data) {
+			var pamokosId = data[klausimasNr].pamokosID;
+			keistiKlausima = "<p style=" + kabute + "text-align: center;" + kabute +">Cia galite pakeisti klausima.</p>";
+			keistiPav += "<form action="+"/pamoka/" + pamokosId + "/edit?_method=PUT" +" method="+"POST"+">";
+			keistiPav += "<div style="+"width:100%;"+ "padding-left:15%;" + "padding-right:15%;" + kabute + ">";
+			keistiPav += "<p style="+"padding-top:12px;"+">Klausimas:</p>";
+			keistiPav += "<input name="+"klausimas"+" class="+"form-control"+" value="+ kabute + data[klausimasNr].klausimas + kabute + ">";
+			keistiPav += "<p style="+"padding-top:12px;"+">Paveikslelio URL:</p>";
+			keistiPav += "<input name="+"paveikslelis"+" class="+"form-control"+" value="+ kabute + data[klausimasNr].paveikslelis + kabute + ">";
+			keistiPav += "<p style="+"padding-top:12px;"+">Atsakymas:</p>";
+			keistiPav += "<input name="+"atsakymas"+" class="+"form-control"+" value="+ kabute + data[klausimasNr].atsakymas + kabute + ">";
+			keistiPav += "<button class="+ kabute +"btn btn-primary btn-block"+ kabute+" type="+"submit"+" style="+ kabute +"margin-top:10px;" + "width:35%;" + "float:right;" + kabute + ">Pakeisti</button>";
+			keistiPav += "</form>";
+			keistiPav += "<button onclick="+kabute+"atsaukti();"+kabute+" type="+kabute+"button"+kabute+" style="+ kabute + "margin-top:10px; width:35%; float:left;"+ kabute +" class="+ kabute +"btn btn-warning btn-block" + kabute + ">Atsaukti/Grysti atgal</button></div>";
+			document.getElementById('klausimas').innerHTML = keistiKlausima;
+			document.getElementById('paveikslelis').innerHTML = keistiPav;	
+		});
+	}
+	function pridetiKlausima() {
+		document.getElementById('atsakymoLaukas').style.visibility = "hidden";
+		document.getElementById('donebtn').style.visibility = "hidden";
+		document.getElementById('darLiko').style.visibility = "hidden";
+		
+		keistiPav = "";
+		$.getJSON('/spauzdintiPamoka', function(data) {
+			var autorius = data[klausimasNr].autorius;
+			var pamokosNr = data[klausimasNr].pamokosNr;
+			keistiKlausima = "<p style=" + kabute + "text-align: center;" + kabute +">Cia galite pakeisti klausima.</p>";
+			keistiPav += "<form action="+"/pamoka/insert/"+ autorius +" method="+"POST"+">";
+			keistiPav += "<div style="+"width:100%;"+ "padding-left:15%;" + "padding-right:15%;" + kabute + ">";
+			keistiPav += "<p style="+"padding-top:12px;"+">Klausimas:</p>";
+			keistiPav += "<input name="+"klausimas"+" class="+"form-control"+" placeholder="+"..."+">";
+			keistiPav += "<p style="+"padding-top:12px;"+">Paveikslelio URL:</p>";
+			keistiPav += "<input name="+"paveikslelis"+" class="+"form-control"+" placeholder="+"..."+">";
+			keistiPav += "<p style="+"padding-top:12px;"+">Atsakymas:</p>";
+			keistiPav += "<input name="+"atsakymas"+" class="+"form-control"+" placeholder="+"..."+">";
+			keistiPav += "<button class="+ kabute +"btn btn-primary btn-block"+ kabute+" type="+"submit"+" style="+ kabute +"margin-top:10px;" + "width:35%;" + "float:right;" + kabute + ">Prideti</button>";
+			keistiPav += "<button onclick="+kabute+"atsaukti();"+kabute+" type="+kabute+"button"+kabute+" style="+ kabute + "margin-top:10px; width:35%; float:left;"+ kabute +" class="+ kabute +"btn btn-warning btn-block" + kabute + ">Atsaukti/Grysti atgal</button></div>";
+			keistiPav += "<input name="+"nr"+" class="+"form-control"+" value="+ pamokosNr +" style="+kabute+"visibility: hidden;"+kabute+">";
+			keistiPav += "<input name="+"tema"+" class="+"form-control"+" value="+ data[klausimasNr].tema +" style="+kabute+"visibility: hidden;"+kabute+">";
+			keistiPav += "<input name="+"KalbaP"+" class="+"form-control"+" value="+ data[klausimasNr].ProgKalba +" style="+kabute+"visibility: hidden;"+kabute+">";
+			keistiPav += "</form>";
+			document.getElementById('klausimas').innerHTML = keistiKlausima;
+			document.getElementById('paveikslelis').innerHTML = keistiPav;	
+		});
+	}
+	
+	function atsaukti() {
+		document.getElementById('atsakymoLaukas').style.visibility = "visible";
+		document.getElementById('donebtn').style.visibility = "visible";
+		document.getElementById('darLiko').style.visibility = "visible";
+		
+		$.getJSON('/spauzdintiPamoka', function(data) {
+			klausimas = data[klausimasNr].klausimas;
+			paveikslelis = data[klausimasNr].paveikslelis;
+			paveikslelis = "<img src="+ paveikslelis +" />"
+			document.getElementById("klausimas").innerHTML=klausimas;
+			document.getElementById("paveikslelis").innerHTML=paveikslelis;
+			liko = "Liko: " + esameKlausime + "/" + data.length;
+			document.getElementById("darLiko").innerHTML=liko;
+			if(esameKlausime == data.length){
+				document.getElementById("donebtn").innerHTML="Baigti";
+			}
+		});
+	}
+	
+	var kabute = '"';
+	var klausimasNr = 0;
+	var esameKlausime = 1;
+	var paveikslelis = "";
+	var klausimas = "";
+	
+	function sekantisKlausimas() {
+		$.getJSON('/vartotojai', function(vartotojas) {
+			$.getJSON('/spauzdintiPamoka', function(data) {
+				var atsakymoLaukas = document.getElementById("atsakymoLaukas").value;
+				var atsakymasDB = data[klausimasNr].atsakymas;
+				if(atsakymoLaukas == atsakymasDB || vartotojas[0].role == 2 && data[0].autorius == vartotojas[0].name) {
+					klausimasNr+= 1;
+					esameKlausime+=1;
+					if(klausimasNr < data.length){
+						klausimas = data[klausimasNr].klausimas;
+						paveikslelis = data[klausimasNr].paveikslelis;
+						paveikslelis = "<img src="+ paveikslelis +" />"
+						document.getElementById("klausimas").innerHTML=klausimas;
+						document.getElementById("paveikslelis").innerHTML=paveikslelis;
+						liko = "Liko: " + esameKlausime + "/" + data.length;
+						document.getElementById("darLiko").innerHTML=liko;
+					} 
+					if(esameKlausime == data.length){
+						document.getElementById("donebtn").innerHTML="Baigti";
+					}
+					if(esameKlausime > data.length) {
+						alert("Issaugota ir redirectinta i Home");
+					}
+				} else {
+					alert("neteisingai");
+				}
+			});
+		});
+	}
+	
+	function logout() {
+		$.getJSON('/uzdarytiSesija', function() {});
+		window.location='login.html';
+	}
+	
+	window.onload = function sukurtiDiva(){
+		$.getJSON('/tikrintiSesija', function(data) {
+			if(data == true) {
+				$.getJSON('/spauzdintiPamoka', function(data) {
+					pakeistiMygtuka();
+					klausimas = data[0].klausimas;
+					paveikslelis = data[0].paveikslelis;
+					paveikslelis = "<img src="+ paveikslelis +" />"
+					document.getElementById("klausimas").innerHTML=klausimas;
+					document.getElementById("paveikslelis").innerHTML=paveikslelis;
+					liko = "Liko: " + esameKlausime + "/" + data.length;
+					document.getElementById("darLiko").innerHTML=liko;
+				});	
+			} else {
+				window.location='login.html';
+			}
+		});
+	}
+	</script>
+	
+	
+  </head>
+<body>
+	<header id="main-header">
+        <div class="container">
+                <div id="branding">
+                    <h1>@VK</h1>
+                </div> <!--branding -->
+                <nav id="main-nav">
+                    <ul>                       
+                        <li><a href="#" onclick="logout()">Atsijungti</a></li>            
+                    </ul> 
+                </nav>
+            </div> <!--container -->
+    </header>
+	<ul class="nav nav-pills nav-justified">
+	  <li><a href="paskyra.html">PASKYRA</a></li>
+	  <li class="active"><a href="home.html">PAMOKOS</a></li>
+	</ul>
+    
+    
+    <div class="container" style="padding-top:20px;"> 
+        <div style="height:400px; width:70%; float: left; border:1px solid black;"> 
+			<div id="klausimas" style="width:100%; height:20%; padding-top:10px;"></div>
+			<div id="paveikslelis" style="width:100%; height:80%;"></div>
+        </div>
+        
+        
+        
+        <div style="height:400px; width:29%; float: right; border:1px solid black;">
+            <button id="pavyzdys" onclick="rodytiPvz()" type="submit" class="btn btn-primary btn-block">Pavyzdys</button>
+            <button id="pridetiKlausima" onclick="pridetiKlausima()" type="submit" style="visibility: hidden;" class="btn btn-primary btn-block">Pridėti naują klausimą</button>
+            <button id="editKlausima" onclick="editKlausima()" type="submit" style="visibility: hidden;" class="btn btn-primary btn-block">Keisti/taisyti klausimą</button>
+            <button id="trintiKlausima" onclick="trintiKlausima()" type="submit" style="visibility: hidden;" class="btn btn-primary btn-block">Ištrinti klausimą</button>
+        </div>
+        
+        <div style="width:70%; float:left; height:50px; padding-top:10px;">
+            <div style="width:70%; float:left;">
+                <input id="atsakymoLaukas" type="text" name="atsakymas" class="form-control" id="usr" placeholder="Atsakymo Laukas:">
+            </div>
+            <div style="width:20%; float:right;">
+                <button id="donebtn" onclick="sekantisKlausimas()" type="submit" name="submit" class="btn btn-primary btn-block">Tęsti</button>
+            </div>
+        </div>
+        <div style="width:29%; height:50px; float:right;"> 
+			<p id="darLiko" style="padding-top: 18px; text-align:center;"></p>
+        </div>
+    
+    
+    </div>
+
+<nav class="navbar navbar-default  navbar-fixed-bottom" role="navigation">
+	<div id="footer">
+	  <div class="container text-center">
+		<p class="text-muted credit" style="color:#B7B7B7">Visos teises saugomos</p>
+	  </div>
+	</div>
+</nav>
+</body>
+</html>

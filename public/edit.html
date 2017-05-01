@@ -14,43 +14,50 @@
     <script src="js/vendor/jquery-1.11.2.min.js"></script>
     <script src="js/vendor/modernizr-2.8.3.min.js"></script>
 	<script>
-	function onlyUnique(value, index, self) {
-		return self.indexOf(value) == index;
-	}
 	function logout() {
 		$.getJSON('/uzdarytiSesija', function() {});
 		window.location='login.html';
 	}
 	
-	window.onload = function sukurtiDiva(){
+	window.onload = function sukurtiLentele(){
 	
-	$.getJSON('/tikrintiSesija', function(data) {
+		$.getJSON('/tikrintiSesija', function(data) {
 		//alert(data);
 			
 		if(data == true) {
-		$.getJSON('/vartotojai', function(data) {
-			var visaInfo = [];
-			var linkas = "window.location='edit.html'";
-			visaInfo.push(data[0]);
-			
-			var vartotojas = visaInfo[0].name;
+			$.getJSON('/vartotojai', function(data) {
+				var linkas = "window.location='paskyra.html'";
 				
-			var divStr = "";
-				for(var i = 0; i<1; i++){
-					divStr+="<table id="+"lentele"+"><tr><td class="+"oranzine boldas"+">" + vartotojas + "</td><td colspan="+"3"+">pasikeiskite vartotojo varda paspaude mygtuka 'EDIT'</td><td id="+"centruoti"+" rowspan="+"2"+"><button onClick ="+linkas+" type="+"button"+" class="+"btn btn-primary"+">EDIT</button></td></tr>";
-					divStr+="<tr><td class="+"pilka"+">Prisijunges</td><td class="+"zalia"+"></td><td class="+"proc8 boldas"+"></td><td class="+"boldas"+"></td></tr>";
-					document.getElementById("divResult").innerHTML=divStr;
-				};
-			});
-		}  else {
-			window.location='login.html';
-		}
-	});
+				document.getElementById("dabarOn").innerHTML= "Esamas vardas: " + data[0].name;
+				
+				var divStr = "";
+				var userId = data[0].ID;
+				divStr+="<form action="+"/paskyra/" + userId  + "/vedit?_method=PUT" +" method="+"POST"+">";
+				divStr+="<input type="+"text"+" name="+"vardas"+" class="+"form-control"+" id="+"usr"+" placeholder="+"..."+">";
+				divStr+="<button onClick ="+linkas+" type="+"submit"+" name="+"submit"+" class="+"btn btn-primary btn-block"+">Pakeisti</button></form>";
+				document.getElementById("divVardas").innerHTML=divStr;
+				
+				var slaptStr = "";
+				var userId = data[0].ID;
+				slaptStr+="<form action="+"/paskyra/" + userId  + "/pedit?_method=PUT" +" method="+"POST"+">";
+				slaptStr+="<input type="+"text"+" name="+"slaptazodis"+" class="+"form-control"+" id="+"usr"+" placeholder="+"..."+">";
+				slaptStr+="<button onClick ="+linkas+" type="+"submit"+" name="+"submit"+" class="+"btn btn-primary btn-block"+">Pakeisti</button></form>";
+				document.getElementById("divPass").innerHTML=slaptStr;
+				});
+			} else {
+				window.location='login.html';
+			}
+		});
 	}
 	</script>
-	
-	
-  </head>
+		
+</head>
+    <style>
+        div.w30 {
+            width: 30%;
+            margin: auto;
+        }
+    </style>
 <body>
 	<header id="main-header">
         <div class="container">
@@ -71,10 +78,20 @@
 	
 	<div id="mydiv" class="container text-center">
 		<h1>Paskyra</h1>
-		<p>Cia galite atnaujinti savo paskyros duomenis</p>
+		<p>Cia galite pasikeisti savo vartotojo varda!</p>
+		
 	</div>
-	<div id="divlentele">
-		<div id="divResult"></div>
+	<div class="w30">
+		<p id="dabarOn"></p>
+		<div id="divVardas"></div>
+	</div>
+	
+	<div id="mydiv" class="container text-center">
+		<p>Cia galite pasikeisti savo vartotojo slaptazodi!</p>
+	</div>
+	
+	<div class="w30">
+		<div id="divPass"></div>
 	</div>
 
 <nav class="navbar navbar-default  navbar-fixed-bottom" role="navigation">

@@ -8,6 +8,28 @@
   <link rel="stylesheet" href="css/style.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  
+  <script>
+  
+	function closeS() {
+		window.location='login.html';
+	}
+	
+	window.onload = function sukurtiLentele(){
+		$.getJSON('/donereg', function(data) {
+			var vardas = data[0];
+			var pastas = data[1];
+			var divStr = "";
+			divStr+= "<table class="+"table table-striped"+"><thead><tr><th></th><th></th></tr></th></tr></thead><tbody><tr>";
+			divStr+= "<th class="+"text-right"+" width="+"50%"+">Rodomas vardas:</th>";
+			divStr+= "<th class="+"text-left"+" width="+"50%"+">"+ vardas +"</th></tr><tr>";
+			divStr+= "<th class="+"text-right"+" width="+"50%"+">El. pastas:</th>";
+			divStr+= "<th class="+"text-left"+" width="+"50%"+">"+ pastas +"</th></tr></tbody></table>";
+			
+			document.getElementById("info").innerHTML=divStr;
+			});
+		}
+  </script>
 </head>
 <body>
 <div style="display:flex;justify-content:center;align-items:center;height:600px">
@@ -23,26 +45,29 @@
 		
 		<div class="form-group text-center h3 "><p><b>DUOMENU PATIKRINIMAS</b></p></div>
 		
+		<!--
 		<div>
 			<table class="table table-striped">
-			<thead>
-				<tr>
-					<th></th>
-					<th></th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<th class="text-right" width="50%">Rodomas vardas:</th>
-					<th class="text-left" width="50%">Test</th>
-				</tr>
-				<tr>
-					<th class="text-right" width="50%">El. pastas:</th>
-					<th class="text-left" width="50%">Testuotojas</th>
-				</tr>
-			</tbody>
+				<thead>
+					<tr>
+						<th></th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th class="text-right" width="50%">Rodomas vardas:</th>
+						<th class="text-left" width="50%">Test</th>
+					</tr>
+					<tr>
+						<th class="text-right" width="50%">El. pastas:</th>
+						<th class="text-left" width="50%">Testuotojas</th>
+					</tr>
+				</tbody>
 			</table>
 		</div>
+		-->
+		<div id="info"></div>
 		
 		<div class="form-group text-center"><p>Paskyra,skyrta studentams kurie nori mokytis ir būti įvertinti</p></div>
 		
@@ -51,8 +76,7 @@
 		</div>
 
 		
-		<div class="form-group"><a href="login.html"><button type="button" class="btn btn-primary btn-block">Registruotis</button></a></div>
-		<div class="form-group"><a href="login.html"><button type="button" class="btn btn-primary btn-block">Atsaukti</button></a></div>
+		<div class="form-group"><button type="button" onclick="closeS()" class="btn btn-primary btn-block">Prisijungti</button></div>
 	</div>
 </div>
 <nav class="navbar navbar-default  navbar-fixed-bottom" role="navigation">

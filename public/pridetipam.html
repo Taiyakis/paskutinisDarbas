@@ -8,6 +8,41 @@
   <link rel="stylesheet" href="css/style.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  
+  
+	<script>
+	function onlyUnique(value, index, self) {
+		return self.indexOf(value) == index;
+	}
+	function getMaxOfArray(array) {
+		return Math.max.apply(null,array);
+	}
+	
+	window.onload = function sukurtiDiva(){
+		$.getJSON('/tikrintiSesija', function(data) {
+				
+		
+			if(data == true) {
+				$.getJSON('/pamokos', function(data) {
+					var eiluciuSk = [];
+					
+					for(var i = 0; i < data.length;i++){
+						eiluciuSk.push(data[i].pamokosNr);
+					}
+					var unique = eiluciuSk.filter( onlyUnique );
+					var kabute = '"';
+					// is unique listo rasti didziausia skaiciu ir ji nusiusti i JS serveri js serveri prie jo +1 padaryti, arba cia tai padaryti.
+					pamNumeris = getMaxOfArray(unique);
+					pamNumeris = pamNumeris + 1;
+					numeris = "<input type="+"text"+" name="+kabute+"pamNr"+kabute+" class="+"form-control"+" value="+ pamNumeris +">";
+					document.getElementById("pamokosNumeris").innerHTML=numeris;
+				});
+			} else {
+				window.location='login.html';
+			}
+		});
+	}
+	</script>				
 </head>
 <body>
 <div style="display:flex;justify-content:center;align-items:center;height:600px">
@@ -15,11 +50,11 @@
 		
 		<div class="form-group text-center"><p><b><h3>Prideti pamoka</h3></b></p></div>
 			<form action="/irasytiPam" method="POST">
-				<div class="form-group"><input type="text" name="pamokosNr" class="form-control" id="usr" placeholder="pamokosNr"></div>
-				<div class="form-group"><input type="text" name="destytojas" class="form-control" id="usr" placeholder="destytojas"></div>
-				<div class="form-group"><input type="text" name="tema" class="form-control" id="usr" placeholder="tema"></div>
-				<div class="form-group"><input type="text" name="klausimas" class="form-control" id="usr" placeholder="klausimas"></div>
-				<div class="form-group"><a href="registerdone.html"><button type="submit" name="submit" class="btn btn-primary btn-block">Prideti</button></a></div>
+				<div class="form-group"><input type="text" name="tema" class="form-control" placeholder="Klausimu tema"></div>
+				<div class="form-group"><input type="text" name="progkalba" class="form-control" placeholder="Programavimo Kalba (JavaScrip, Java, C#, t.t.)"></div>
+				<div class="form-group"><button type="submit" name="submit" class="btn btn-primary btn-block">Prideti</button></div>
+				<div class="form-group"><button onclick="window.location='home.html';" type="button" name="submit" class="btn btn-primary btn-block">Atgal</button></div>
+				<div id="pamokosNumeris"></div>
 			</form>	
 	</div>
 </div>

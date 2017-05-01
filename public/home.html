@@ -17,48 +17,68 @@
 	function onlyUnique(value, index, self) {
 		return self.indexOf(value) == index;
 	}
+	function pakeistiMygtuka(){
+		$.getJSON('/vartotojai', function(data) {
+			if(data[0].role == 2) {
+				document.getElementById('pridetiPam').style.visibility = "visible";
+			}
+		});
+	}
+	function logout() {
+		$.getJSON('/uzdarytiSesija', function() {});
+		window.location='login.html';
+	}
+	
 	
 	window.onload = function sukurtiDiva(){
-		$.getJSON('/pamokos', function(data) {
-			var eiluciuSk = [];
-			var pamokuSk = [];
-			var destytojas = [];
-			var pamokosPav = [];
-			
-			for(var i = 0; i < data.length;i++){
-				eiluciuSk.push(data[i].pamokosNr);
-			}
-			var unique = eiluciuSk.filter( onlyUnique );
-			
-			for(var j = 0; j < unique.length; j++){
-				var sk = 0;
-				var onlyOnceDestytojas = true;
-				var onlyOncePamoka = true;
-				for(var k = 0; k < data.length; k++){
-					if(data[k].pamokosNr == unique[j]){
-						sk = sk + 1;
-						if(onlyOnceDestytojas && data[k].pamokosNr == unique[j]){
-							destytojas.push(data[k].autorius);
-							onlyOnceDestytojas = false;
-						}
-						if(onlyOncePamoka && data[k].pamokosNr == unique[j]){
-							pamokosPav.push(data[k].tema);
-							onlyOncePamoka = false;
-						}
+		$.getJSON('/tikrintiSesija', function(data) {
+				
+		
+			if(data == true) {
+				$.getJSON('/pamokos', function(data) {
+					var eiluciuSk = [];
+					var pamokuSk = [];
+					var destytojas = [];
+					var pamokosPav = [];
+					pakeistiMygtuka();
+					
+					for(var i = 0; i < data.length;i++){
+						eiluciuSk.push(data[i].pamokosNr);
 					}
-				}
-				pamokuSk.push(sk);
+					var unique = eiluciuSk.filter( onlyUnique );
+					
+					for(var j = 0; j < unique.length; j++){
+						var sk = 0;
+						var onlyOnceDestytojas = true;
+						var onlyOncePamoka = true;
+						for(var k = 0; k < data.length; k++){
+							if(data[k].pamokosNr == unique[j]){
+								sk = sk + 1;
+								if(onlyOnceDestytojas && data[k].pamokosNr == unique[j]){
+									destytojas.push(data[k].autorius);
+									onlyOnceDestytojas = false;
+								}
+								if(onlyOncePamoka && data[k].pamokosNr == unique[j]){
+									pamokosPav.push(data[k].tema);
+									onlyOncePamoka = false;
+								}
+							}
+						}
+						pamokuSk.push(sk);
+					}	
+					var kabute = '"';
+					var divStr = "";
+					for(var i = 0; i<unique.length; i++){
+						divStr+="<table id="+"lentele"+"><tr><td class="+"oranzine boldas"+">" + pamokosPav[i] + "</td><td colspan="+"3"+">Pamoka skirta ismokti arba patikrinti turimas zinias, "+ pamokosPav[i] +" kalboje.</td><td id="+"centruoti"+" rowspan="+"2"+"><form action="+"/pasirinktaPamoka"+" method="+"POST"+"><button name="+"test"+"   type="+"submit"+" class="+ kabute +"btn btn-primary"+ kabute +" value="+ unique[i] +" >PRADETI</button></form></td></tr>";
+						divStr+="<tr><td class="+"pilka"+">" + destytojas[i] + "</td><td class="+"zalia"+">PRADZIAMOKSLIS</td><td class="+"proc8 boldas"+">Liko: 0/"+pamokuSk[i] +" |</td><td class="+"boldas"+">Praleista laiko: ?/?</td></tr>";
+					};
+					document.getElementById("divResult").innerHTML=divStr;
+				});
+			} else {
+				window.location='login.html';
 			}
-			
-			
-			
-			var divStr = "";
-			for(var i = 0; i<unique.length; i++){
-				divStr+="<table id="+"lentele"+"><tr><td class="+"oranzine boldas"+">" + pamokosPav[i] + "</td><td colspan="+"3"+">izanga i JavaScript pasauli. Trumpi sintaksiniai testai kurie leis padeti pirmus zingsnius pasaulyje</td><td id="+"centruoti"+" rowspan="+"2"+"><button type="+"button"+" class="+"btn btn-primary"+">PRADETI</button></td></tr>";
-				divStr+="<tr><td class="+"pilka"+">" + destytojas[i] + "</td><td class="+"zalia"+">PRADZIAMOKSLIS</td><td class="+"proc8 boldas"+">Liko: 0/"+pamokuSk[i] +" |</td><td class="+"boldas"+">Praleista laiko: ?/?</td></tr>";
-				document.getElementById("divResult").innerHTML=divStr;
-			};
 		});
+
 	}
 	</script>
 	
@@ -72,7 +92,7 @@
                 </div> <!--branding -->
                 <nav id="main-nav">
                     <ul>                       
-                        <li><a href="#">Logout</a></li>            
+                        <li><a href="#" onclick="logout()">Atsijungti</a></li>            
                     </ul> 
                 </nav>
             </div> <!--container -->
@@ -84,7 +104,7 @@
 	
 	<div id="divlentele">
 		<form action="/pridetiPamoka" method="POST">
-			<button type="submit" class="btn btn-primary">Prideti pamoka</button>
+			<button type="submit" id="pridetiPam" style="visibility: hidden;" class="btn btn-primary">Prideti tema</button>
 		</form>
 	</div>
 	

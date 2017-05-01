@@ -8,7 +8,34 @@
   <link rel="stylesheet" href="css/style.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  
+  <script>
+  
+	function tikrinimai() {
+		var radioButtons = document.getElementsByTagName('input');
+		for (var i=0; i<radioButtons.length; i++){
+			if(radioButtons[i].type == 'radio' && radioButtons[i].checked) {
+				return true;
+			}
+		}
+		return false;
+	}
+	function validacija() {
+		if(tikrinimai() == false) {
+			document.getElementById("klaida").innerHTML = "PAMIRSOTE PASIRINKTI ROLE!";
+		}
+	}
+  
+  </script>
+
 </head>
+
+  <style>
+	#klaida {
+		color: red;
+	}
+  
+  </style>
 <body>
 <div style="display:flex;justify-content:center;align-items:center;height:600px">
 	<div style="width:30%"> 
@@ -25,15 +52,19 @@
 		
 		<form action="/register" method="POST">
 			<div class="radio">
-			  <label><input type="radio" name="optradio"><b>Studentas</b></label>
+			  <label><input type="radio" name="optradio" value="1"><b>Studentas</b></label>
 			</div>
 			<div class="form-group"><p>Paskyra,skirta studentams kurie nori mokytis ir būti įvertinti</p></div>
 			<div class="radio">
-			  <label><input type="radio" name="optradio"><b>Destytojas</b></label>
+			  <label><input type="radio" name="optradio" value="2"><b>Destytojas</b></label>
 			</div>
 			<div class="form-group"><p>Paskyra su dėstytojo tipu,privalo kurti programinės įrangos</p></div>
-			<div class="form-group"><button type="submit" name="submit" class="btn btn-primary btn-block">Testi</button></div>
+			
+			<p id="klaida"></p>
+			<div class="form-group"><button onclick="validacija()" type="submit" name="submit" class="btn btn-primary btn-block">Testi</button></div>
 		</form>
+		
+		<div class="form-group"><a href="login.html"><button type="button" class="btn btn-primary btn-block">Atgal</button></a></div>
 	</div>
 </div>
 <nav class="navbar navbar-default  navbar-fixed-bottom" role="navigation">

@@ -8,7 +8,41 @@
   <link rel="stylesheet" href="css/style.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  
+  <script>
+
+	function zinute() {
+		if(validacija() == 1){
+			document.getElementById("klaida").innerHTML = "PAMIRSOTE IVESTI DUOMENIS!";
+		}
+		if(validacija() == 2){
+			document.getElementById("klaida").innerHTML = "Nesutampa Slaptazodis!";
+		}
+	}
+	
+	function validacija() {
+		var valid = 0;
+		var textLaukas = document.getElementsByTagName('input');
+		for (var i=0; i < textLaukas.length; i++){
+			if(textLaukas[i].id == 'usr' && textLaukas[i].value == "") {
+				valid = 1;
+			}
+		}
+		if(textLaukas[2].value != textLaukas[3].value){
+			valid = 2;
+		}
+		return valid;
+	}
+  </script>
+  
 </head>
+
+  <style>
+	#klaida {
+		color: red;
+	}
+  
+  </style>
 <body>
 <div style="display:flex;justify-content:center;align-items:center;height:600px">
 	<div style="width:30%"> 
@@ -26,11 +60,12 @@
 				<div class="form-group"><input type="text" name="username" class="form-control" id="usr" placeholder="Rodomas vardas"></div>
 				<div class="form-group"><input type="text" name="email" class="form-control" id="usr" placeholder="El.pastas"></div>
 				<div class="form-group"><input type="password" name="passwords" class="form-control" id="usr" placeholder="Slaptazodis"></div>
-				<div class="form-group"><input type="password" class="form-control" id="usr" placeholder="Pakartoti slaptazodis"></div>
-				<div class="form-group"><a href="registerdone.html"><button type="submit" name="submit" class="btn btn-primary btn-block">Registruotis</button></a></div>
+				<div class="form-group"><input type="password" name="passwords2" class="form-control" id="usr" placeholder="Pakartoti slaptazodis"></div>
+				<p id="klaida"></p>
+				<div class="form-group"><button onclick="zinute()" type="submit" name="submit" class="btn btn-primary btn-block">Registruotis</button></div>
 			</form>	
 
-		<div class="form-group"><a href="register.html"<button type="button" class="btn btn-primary btn-block">Atgal</button></a></div>
+		<div class="form-group"><a href="register.html"><button type="button" class="btn btn-primary btn-block">Atgal</button></a></div>
 	</div>
 </div>
 <nav class="navbar navbar-default  navbar-fixed-bottom" role="navigation">

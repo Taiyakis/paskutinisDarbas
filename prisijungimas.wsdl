@@ -9,8 +9,7 @@
 	
 	
 	<wsdl:message name="prisijungimoUzklausa">
-		<wsdl:part name="username" type="xs:string"/>
-		<wsdl:part name="passwords" type="xs:string"/>
+		<wsdl:part name="kintamasis" type="xs:string"/>
 	</wsdl:message>
 	
 	<wsdl:message name="prisijungimoAtsakymas">

@@ -3,12 +3,24 @@ var soap = require('soap');
 var http = require('http');
 var express = require('express');
 var xml = require('fs').readFileSync('prisijungimas.wsdl', 'utf8');
+var mysql = require('mysql');
 
+var connection;
 var atsakymas = "";
+
+
 var service = {
 	ManoService : {
 		uzklausosPort : {
 			zinutes: function (args) {
+				if (args.kintamasis == 'true') {
+					atsakymas = "Prisijungete";
+				} else {
+					atsakymas = "Neprisijungete";
+				}
+				return { atsakymas }
+				
+				/*
 				if (args.passwords == null || args.username == null) {
 					atsakymas = "Pamirsote ivesti *username arba (slaptazodi)";
 				} else if (args.username == "admin@gmail.com" && args.passwords == "admin") {
@@ -17,18 +29,17 @@ var service = {
 					atsakymas = "Klaidingai suvesti duomenys";
 				}
 				return { atsakymas }
+				*/
 			}
 		}
 	}
 };
 
 
+
 var server = http.createServer(function(request,response) {
 	response.end("404?: Not Found: " + request.url);
 });
-
-//server.listen(777);
-//soap.listen(server, '/login', service, xml);
 
 var app = express();
 var router = express.Router();
