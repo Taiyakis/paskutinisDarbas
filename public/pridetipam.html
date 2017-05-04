@@ -20,10 +20,11 @@
 	
 	window.onload = function sukurtiDiva(){
 		$.getJSON('/tikrintiSesija', function(data) {
-				
+			
 		
 			if(data == true) {
 				$.getJSON('/pamokos', function(data) {
+					document.getElementById('pamokosNumeris').style.visibility = "hidden";
 					var eiluciuSk = [];
 					
 					for(var i = 0; i < data.length;i++){
@@ -51,7 +52,7 @@
 		<div class="form-group text-center"><p><b><h3>Prideti pamoka</h3></b></p></div>
 			<form action="/irasytiPam" method="POST">
 				<div class="form-group"><input type="text" name="tema" class="form-control" placeholder="Klausimu tema"></div>
-				<div class="form-group"><input type="text" name="progkalba" class="form-control" placeholder="Programavimo Kalba (JavaScrip, Java, C#, t.t.)"></div>
+				<div class="form-group"><input type="text" name="progkalba" class="form-control" placeholder="Programavimo Kalba (JavaScript, Java, C#, t.t.)"></div>
 				<div class="form-group"><button type="submit" name="submit" class="btn btn-primary btn-block">Prideti</button></div>
 				<div class="form-group"><button onclick="window.location='home.html';" type="button" name="submit" class="btn btn-primary btn-block">Atgal</button></div>
 				<div id="pamokosNumeris"></div>
