@@ -17,30 +17,33 @@
 	function onlyUnique(value, index, self) {
 		return self.indexOf(value) == index;
 	}
-	function pakeistiMygtuka(){
-		$.getJSON('/vartotojai', function(data) {
-			if(data[0].role == 2) {
-				document.getElementById('pridetiPam').style.visibility = "visible";
-			}
-		});
-	}
-	function logout() {
-		$.getJSON('/uzdarytiSesija', function() {});
-		window.location='login.html';
-	}
-	
+
 	
 	window.onload = function sukurtiDiva(){
 		$.getJSON('/tikrintiSesija', function(data) {
 				
 		
 			if(data == true) {
+			
+			$.getJSON('/vartotojai', function(vartotojas) {
 				$.getJSON('/pamokos', function(data) {
 					var eiluciuSk = [];
 					var pamokuSk = [];
 					var destytojas = [];
 					var pamokosPav = [];
-					pakeistiMygtuka();
+					var temosID = [];
+					
+					var kabute = '"';
+					buttonas = "";
+					if(vartotojas[0].role == 2) {
+						
+						buttonas += "<form action="+kabute+"/pridetiPamoka"+kabute+" method="+kabute+"POST"+kabute+">";
+						buttonas += "<button type="+kabute+"submit"+kabute+" id="+kabute+"pridetiPam"+kabute+" class="+kabute+"btn btn-primary"+kabute+">Prideti tema</button>";
+						buttonas += "</form>";
+						
+						document.getElementById("temosBTN").innerHTML=buttonas;
+					}
+					
 					
 					for(var i = 0; i < data.length;i++){
 						eiluciuSk.push(data[i].pamokosNr);
@@ -51,6 +54,7 @@
 						var sk = 0;
 						var onlyOnceDestytojas = true;
 						var onlyOncePamoka = true;
+						var onlyOnceTema = true;
 						for(var k = 0; k < data.length; k++){
 							if(data[k].pamokosNr == unique[j]){
 								sk = sk + 1;
@@ -62,18 +66,28 @@
 									pamokosPav.push(data[k].tema);
 									onlyOncePamoka = false;
 								}
+								if(onlyOnceTema && data[k].pamokosNr == unique[j]){
+									temosID.push(data[k].sesijosID);
+									onlyOnceTema = false;
+								}
 							}
 						}
 						pamokuSk.push(sk);
 					}	
+					
 					var kabute = '"';
 					var divStr = "";
 					for(var i = 0; i<unique.length; i++){
-						divStr+="<table id="+"lentele"+"><tr><td class="+"oranzine boldas"+">" + pamokosPav[i] + "</td><td colspan="+"3"+">Pamoka skirta ismokti arba patikrinti turimas zinias, "+ pamokosPav[i] +" kalboje.</td><td id="+"centruoti"+" rowspan="+"2"+"><form action="+"/pasirinktaPamoka"+" method="+"POST"+"><button name="+"test"+"   type="+"submit"+" class="+ kabute +"btn btn-primary"+ kabute +" value="+ unique[i] +" >PRADETI</button></form></td></tr>";
-						divStr+="<tr><td class="+"pilka"+">" + destytojas[i] + "</td><td class="+"zalia"+">PRADZIAMOKSLIS</td><td class="+"proc8 boldas"+">Liko: 0/"+pamokuSk[i] +" |</td><td class="+"boldas"+">Praleista laiko: ?/?</td></tr>";
+						divStr+="<table id="+"lentele"+"><tr><td class="+"oranzine boldas"+">" + pamokosPav[i] + "</td><td colspan="+"3"+">Pamoka skirta ismokti arba patikrinti turimas zinias, "+ pamokosPav[i] +" kalboje.</td><td id="+"centruoti"+" rowspan="+"2"+"><form action="+"/pasirinktaPamoka"+" method="+"POST"+"><button name="+"test"+"   type="+"submit"+" class="+ kabute +"btn btn-primary"+ kabute +" value="+ unique[i] +" >PRADETI</button></form>";
+						
+						if(vartotojas[0].ID == temosID[i]) {
+							divStr+= "<form action="+"/tema/" + unique[i] + "/delete?_method=DELETE" +" method="+"POST"+"><button name="+"test"+"   type="+"submit"+" class="+ kabute +"btn btn-primary"+ kabute +" value="+ unique[i] +" >Istrinti</button></form>";
+						}
+						divStr+="</td></tr><tr><td class="+"pilka"+">" + destytojas[i] + "</td><td class="+"zalia"+">PRADZIAMOKSLIS</td><td class="+"proc8 boldas"+">Liko: 0/"+pamokuSk[i] +" |</td><td class="+"boldas"+">Praleista laiko: ?/?</td></tr>";
 					};
 					document.getElementById("divResult").innerHTML=divStr;
 				});
+			});
 			} else {
 				window.location='login.html';
 			}
@@ -91,8 +105,10 @@
                     <h1>@VK</h1>
                 </div> <!--branding -->
                 <nav id="main-nav">
-                    <ul>                       
-                        <li><a href="#" onclick="logout()">Atsijungti</a></li>            
+                    <ul> 
+						<form action="/uzdarytiSesija" method="POST">
+							<button type="submit" id="pridetiPam" class="btn btn-primary">Atsijungti</button>
+						</form>          
                     </ul> 
                 </nav>
             </div> <!--container -->
@@ -102,16 +118,15 @@
 	  <li class="active"><a href="home.html">PAMOKOS</a></li>
 	</ul>
 	
-	<div id="divlentele">
-		<form action="/pridetiPamoka" method="POST">
-			<button type="submit" id="pridetiPam" style="visibility: hidden;" class="btn btn-primary">Prideti tema</button>
-		</form>
-	</div>
+
 	
 	<div id="mydiv" class="container text-center">
 		<h1>PRADĖTI</h1>
 		<p>Norėdami pradėti pamoką pasirinkite filtų pagalba pasirinkite Jums aktualiausią pamoką.</p>
 		<p>Jeigu nemokate nei vienos programavimo kalbos mes rekomenduojame JavaSript pradžiamokslį.</p>
+	</div>
+	
+	<div id="temosBTN" style="margin-left: 70px;">
 	</div>
 	
 	<div id="divlentele">

@@ -22,6 +22,26 @@ var connection;
 var arPrisijunges;
 
 
+
+/*
+connection = mysql.createConnection({
+	host: 'foxi.wuffhost.ovh',
+	user: 'taiyakis_minde',
+	password: 'webservisaiREST',
+	database: 'taiyakis_appi'
+	});
+	
+connection = mysql.createConnection({
+	host: 'localhost',
+	user: 'root',
+	password: '',
+	database: 'vartotojasdb'
+	});
+*/
+
+
+
+
 app.use(express.static('public'))
 app.use(bodyParser());
 app.use(bodyParser.json());
@@ -39,11 +59,13 @@ app.get("/tikrintiSesija", function(req, res) {
 		res.json(arPrisijunges);
 	}
 });
-app.get("/uzdarytiSesija", function(req, res) {
+
+app.post("/uzdarytiSesija", function(req, res) {
 	valid == false;
 	ssn = undefined;
 	res.redirect('login.html');
 });
+
 
 app.get("/donereg", function(req,res) {
 	doneRegister(res);
@@ -161,6 +183,40 @@ app.delete("/pamoka/:id/delete", function(req, res) {
 	istrintiKlausima(res, id);
 });
 
+app.delete("/tema/:id/delete", function(req, res) {
+	var id = req.params.id;
+	istrintiViska(res, id);
+});
+
+function istrintiViska(res, pamokID) {
+	console.log('Istrinti pagal id = ' + pamokID);
+	
+	connection = mysql.createConnection({
+	host: 'foxi.wuffhost.ovh',
+	user: 'taiyakis_minde',
+	password: 'webservisaiREST',
+	database: 'taiyakis_appi'
+	});
+	
+	connection.connect(function(error) {
+		if(!!error) {
+			console.log('Error');
+		} else {
+			console.log('Connected');
+			connection.query('DELETE FROM pamokostable WHERE pamokosNr = ?',[pamokID], function(error, result) {
+			if(!!error) {
+				console.log('Error in the query');
+			} else {
+				console.log('Pakeistas klausimas: '+ result.changedRows);
+				res.redirect('/home.html');
+			}
+			});
+			connection.end();
+		}
+	});
+}
+
+
 app.post("/irasytiPam", function(req,res) {
 	tema = req.body.tema;
 	KalbaP = req.body.progkalba;
@@ -174,10 +230,10 @@ app.post("/irasytiPam", function(req,res) {
 
 function pridetiKlausima(res, temaN, KalbaPN, autoriusN, sesijosidN, pamokosNumerisN){
 	connection = mysql.createConnection({
-	host: 'localhost',
-	user: 'root',
-	password: '',
-	database: 'vartotojasdb'
+	host: 'foxi.wuffhost.ovh',
+	user: 'taiyakis_minde',
+	password: 'webservisaiREST',
+	database: 'taiyakis_appi'
 	});
 	connection.connect(function(error) {
 		if(!!error) {
@@ -208,10 +264,10 @@ function istrintiKlausima(res, pamokID) {
 	console.log('Istrinti pagal id = ' + pamokID);
 	
 	connection = mysql.createConnection({
-	host: 'localhost',
-	user: 'root',
-	password: '',
-	database: 'vartotojasdb'
+	host: 'foxi.wuffhost.ovh',
+	user: 'taiyakis_minde',
+	password: 'webservisaiREST',
+	database: 'taiyakis_appi'
 	});
 	
 	connection.connect(function(error) {
@@ -234,10 +290,10 @@ function istrintiKlausima(res, pamokID) {
 
 function pridetiNaujaKlausima(nrN, klausimasN, paveikslelisN, atsakymasN, autoriusN, temaN, kalbaN, sessionID){
 	connection = mysql.createConnection({
-	host: 'localhost',
-	user: 'root',
-	password: '',
-	database: 'vartotojasdb'
+	host: 'foxi.wuffhost.ovh',
+	user: 'taiyakis_minde',
+	password: 'webservisaiREST',
+	database: 'taiyakis_appi'
 	});
 	
 	connection.connect(function(error) {
@@ -273,10 +329,10 @@ function pridetiNaujaKlausima(nrN, klausimasN, paveikslelisN, atsakymasN, autori
 
 function pakeistiPamoka(id, klausimas, paveikslelis, atsakymas, res){
 	connection = mysql.createConnection({
-	host: 'localhost',
-	user: 'root',
-	password: '',
-	database: 'vartotojasdb'
+	host: 'foxi.wuffhost.ovh',
+	user: 'taiyakis_minde',
+	password: 'webservisaiREST',
+	database: 'taiyakis_appi'
 	});
 	
 	console.log(id + "  "+ klausimas);
@@ -305,10 +361,10 @@ function pakeistiPamoka(id, klausimas, paveikslelis, atsakymas, res){
 
 function vienaPamoka(res, pamokosValue) {
 	connection = mysql.createConnection({
-	host: 'localhost',
-	user: 'root',
-	password: '',
-	database: 'vartotojasdb'
+	host: 'foxi.wuffhost.ovh',
+	user: 'taiyakis_minde',
+	password: 'webservisaiREST',
+	database: 'taiyakis_appi'
 	});
 	
 	pamID = pamokosValue;
@@ -337,10 +393,10 @@ function registruotis(res, req){
 	registerPastas = pastas;
 	
 	connection = mysql.createConnection({
-	host: 'localhost',
-	user: 'root',
-	password: '',
-	database: 'vartotojasdb'
+	host: 'foxi.wuffhost.ovh',
+	user: 'taiyakis_minde',
+	password: 'webservisaiREST',
+	database: 'taiyakis_appi'
 	});
 	connection.connect(function(error) {
 		if(!!error) {
@@ -387,10 +443,10 @@ function doneRegister(res) {
 }
 function tikrinti(res){
 	connection = mysql.createConnection({
-	host: 'localhost',
-	user: 'root',
-	password: '',
-	database: 'vartotojasdb'
+	host: 'foxi.wuffhost.ovh',
+	user: 'taiyakis_minde',
+	password: 'webservisaiREST',
+	database: 'taiyakis_appi'
 	});
 	connection.connect(function(error) {
 		if(!!error) {
@@ -416,10 +472,10 @@ function onlyUnique(value, index, self) {
 
 function pamokos(res){
 	connection = mysql.createConnection({
-	host: 'localhost',
-	user: 'root',
-	password: '',
-	database: 'vartotojasdb'
+	host: 'foxi.wuffhost.ovh',
+	user: 'taiyakis_minde',
+	password: 'webservisaiREST',
+	database: 'taiyakis_appi'
 	});
 	
 	connection.connect(function(error) {
@@ -442,10 +498,10 @@ function pamokos(res){
 
 function pakeistiSlaptazodiPUT(id, slaptazodis){
 	connection = mysql.createConnection({
-	host: 'localhost',
-	user: 'root',
-	password: '',
-	database: 'vartotojasdb'
+	host: 'foxi.wuffhost.ovh',
+	user: 'taiyakis_minde',
+	password: 'webservisaiREST',
+	database: 'taiyakis_appi'
 	});
 	
 	console.log(id + "  "+ slaptazodis);
@@ -472,10 +528,10 @@ function pakeistiSlaptazodiPUT(id, slaptazodis){
 
 function pakeistiVardaPUT(id, vardas){
 	connection = mysql.createConnection({
-	host: 'localhost',
-	user: 'root',
-	password: '',
-	database: 'vartotojasdb'
+	host: 'foxi.wuffhost.ovh',
+	user: 'taiyakis_minde',
+	password: 'webservisaiREST',
+	database: 'taiyakis_appi'
 	});
 	
 	console.log(id + "  "+ vardas);
@@ -506,10 +562,10 @@ function prisijungimas(req, res) {
 	ssn = req.session;
 	
 	connection = mysql.createConnection({
-	host: 'localhost',
-	user: 'root',
-	password: '',
-	database: 'vartotojasdb'
+	host: 'foxi.wuffhost.ovh',
+	user: 'taiyakis_minde',
+	password: 'webservisaiREST',
+	database: 'taiyakis_appi'
 	});
 	connection.connect(function(error) {
 		if(!!error) {
@@ -563,6 +619,5 @@ function Soapas(reiksme) {
 		});
 	});
 }
-
 
 app.listen(3000);

@@ -14,11 +14,6 @@
     <script src="js/vendor/jquery-1.11.2.min.js"></script>
     <script src="js/vendor/modernizr-2.8.3.min.js"></script>
 	<script>
-	function logout() {
-		$.getJSON('/uzdarytiSesija', function() {});
-		window.location='login.html';
-	}
-	
 	window.onload = function sukurtiLentele(){
 	
 		$.getJSON('/tikrintiSesija', function(data) {
@@ -65,9 +60,11 @@
                     <h1>@VK</h1>
                 </div> <!--branding -->
                 <nav id="main-nav">
-                    <ul>                       
-                        <li><a href="#" onclick="logout()">Atsijungti</a></li>            
-                    </ul> 
+					<ul>
+						<form action="/uzdarytiSesija" method="POST">
+							<button type="submit" id="pridetiPam" class="btn btn-primary">Atsijungti</button>
+						</form> 
+					</ul>
                 </nav>
             </div> <!--container -->
     </header>
